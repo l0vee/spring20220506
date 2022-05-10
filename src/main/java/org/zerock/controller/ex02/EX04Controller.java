@@ -78,6 +78,7 @@ public class EX04Controller {
 		System.out.println(number); // 300
 	}
 	
+	//pw랑 num 아님 주의
 	// /ex04/sub09?password=1q2w3e&number=10000
 	@RequestMapping("sub09")
 	public void method09(@RequestParam("password") String pw, @RequestParam("number") int num) {
@@ -86,6 +87,7 @@ public class EX04Controller {
 	}
 
 	// /ex04/sub10?name=trump
+	// 될수도 있고 안될수도 있게 하려면 required = false 추가 없으면 null 출력
 	@RequestMapping("sub10")
 	public void method10(@RequestParam(value = "name", required = false) String name) {
 		System.out.println(name);
@@ -105,6 +107,8 @@ public class EX04Controller {
 	}
 	
 	// /ex04/sub13?food=apple&food=banana&food=milk
+	// 12와 같은데 12는 food를 foods로 받은거라 param써주는데
+	// 여기는 food-food 같으니까 request코드 생략해도 됨
 	@RequestMapping("sub13")
 	public void method13(String[] food) {
 		System.out.println(Arrays.toString(food));
