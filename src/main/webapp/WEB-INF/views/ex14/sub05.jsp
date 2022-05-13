@@ -12,6 +12,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${param.id }번 직원의 이름은 ${employeeName }입니다.</h1>
+	<h1>새 고객 입력</h1>
+	<form action="${pageContext.request.contextPath }/ex14/sub05" method="post">
+		고객명 : <input type="text" name="customerName" value="Son H.M"/> <br />
+		계약명 : <input type="text" name="contactName" value="Striker"/> <br/>
+		주소 : <input type="text" name="address" value="seoul gangnam" /><br/>
+		도시 : <input type="text" name="city" value="London" /><br/>
+		나라 : <input type="text" name="country" value="UK" /><br/>
+		우편번호 : <input type="text" name="postalCode" value="12345" /><br/>
+		<button>등록</button>
+		
+		
+	</form>
 </body>
 </html>

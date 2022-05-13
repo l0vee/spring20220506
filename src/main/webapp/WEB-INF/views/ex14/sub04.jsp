@@ -12,6 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${param.id }번 직원의 이름은 ${employeeName }입니다.</h1>
+<h1>${param.id }번 직원</h1>
+<h1>FirstName : ${employee.firstName }</h1>
+<h1>LastName : ${employee.lastName }</h1>
+<h1>BirthDate : ${employee.birthDate }</h1>
+
 </body>
 </html>
