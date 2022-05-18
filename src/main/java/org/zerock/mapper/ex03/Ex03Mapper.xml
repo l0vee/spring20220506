@@ -8,18 +8,47 @@
   </select>
   
   <select id="selectEmployeeFirstNameById" resultType="string">
-  SELECT FirstName
-  FROM Employees
-  WHERE EmployeeID = #{id}
+  	SELECT FirstName 
+  	FROM Employees 
+  	WHERE EmployeeID = #{id}
   </select>
   
   <select id="selectBoard" resultType="org.zerock.domain.ex02.BoardDto">
-  SELECT id, title, body, inserted
-  FROM Board
-  ORDER BY id DESC
+  	SELECT b.id        id, 
+  	       b.title     title, 
+  	       b.inserted  inserted,
+  	       COUNT(r.id) numOfReply
+  	FROM Board b LEFT JOIN Reply r ON b.id = r.board_id
+  	GROUP BY b.id
+  	ORDER BY id DESC
   </select>
   
+  <select id="getBoard" resultType="org.zerock.domain.ex02.BoardDto">
+  	SELECT id, title, body, inserted
+  	FROM Board
+  	WHERE id = #{id}
+  </select>
+  
+  <update id="updateBoard">
+  	UPDATE Board
+  	SET title = #{title},
+  	    body = #{body}
+  	WHERE id = #{id}
+  </update>
+  
+  <delete id="deleteBoard">
+  	DELETE FROM Board
+  	WHERE id = #{id}
+  </delete>
+  
+  <insert id="insertBoard" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+  	INSERT INTO Board (title, body, inserted)
+  	VALUES (#{title}, #{body}, #{inserted})
+  </insert>
+  
+  <!-- insert
+  
+  update
+  
+  delete -->
 </mapper>
-
-
-<!-- mybatis에서 쓰는 거 해주면 됨 -->

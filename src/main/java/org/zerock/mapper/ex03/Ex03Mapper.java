@@ -12,4 +12,18 @@ public interface Ex03Mapper {
 
 	List<BoardDto> selectBoard();
 
+	BoardDto getBoard(int id);
+
+	int updateBoard(BoardDto board);
+
+	int deleteBoard(int id);
+
+	int insertBoard(BoardDto board);
+
 }
+
+
+
+
+
+
